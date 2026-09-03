@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('location');
             $table->integer('quota');
+            $table->string('status')->default('Aktif'); // <--- TAMBAHKAN BARIS INI
             $table->timestamps();
             $table->softDeletes();
         });
