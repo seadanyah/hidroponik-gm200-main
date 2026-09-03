@@ -7,6 +7,8 @@
             <p class="text-gray-600 max-w-2xl mx-auto text-lg">Pelajari tips bertani, wawasan bisnis hidroponik, dan
                 panduan lengkap dari para pakar GM 200.</p>
         </div>
+
+        @if($latest)
         <a href="/artikel/{{ \Illuminate\Support\Str::slug($latest->title) }}">
             <div class="relative rounded-[2rem] overflow-hidden shadow-xl group cursor-pointer border border-gray-100">
                 <div
@@ -35,6 +37,15 @@
                 </div>
             </div>
         </a>
+        @else
+        <!-- Tampilan Placeholder jika database artikel masih kosong -->
+        <div class="text-center py-16 bg-white rounded-[2rem] border border-gray-100 shadow-sm">
+            <i class="fa-regular fa-newspaper text-5xl text-gray-300 mb-4"></i>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Belum Ada Artikel</h3>
+            <p class="text-gray-500">Nantikan update edukasi dan tips hidroponik terbaru dari kami.</p>
+        </div>
+        @endif
+
     </div>
 </section>
 
