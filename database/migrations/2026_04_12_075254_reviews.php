@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
             $table->text('review');
             $table->integer('rating')->nullable();
+            $table->string('tampil')->default('ya'); // <--- INI TAMBAHANNYA
             $table->timestamps();
             $table->softDeletes();
         });
