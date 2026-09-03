@@ -57,13 +57,14 @@ Route::get('/produk', function () {
 })->name('produk');
 
 Route::get('/artikel', function () {
-
     $latest = Article::orderBy('id', 'desc')->first();
+
     if ($latest) {
         $latest->slug = Str::slug($latest->title);
     }
 
-    $data = Article::where('id', '!=', $latest->id)
+    // Perbaikan ada di baris bawah ini (pakai optional)
+    $data = Article::where('id', '!=', optional($latest)->id)
         ->orderBy('id', 'desc')
         ->get()
         ->map(function ($item) {
