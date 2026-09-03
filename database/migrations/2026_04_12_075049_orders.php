@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('name', 100)->nullable();
+            $table->string('phone', 20)->nullable();
+            $table->string('email', 100);
+            $table->text('address');
+            $table->text('note');
             $table->dateTime('order_date');
             $table->integer('total_price');
-            $table->enum('status', ['pending', 'paid', 'shipped', 'completed', 'cancelled']);
+            $table->enum('status', ['pending', 'dibayar', 'dikirim', 'selesai', 'dibatalkan', 'paid', 'shipped', 'completed', 'cancelled']);
             $table->timestamps();
             $table->softDeletes();
         });
